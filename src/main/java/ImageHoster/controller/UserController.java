@@ -45,14 +45,14 @@ public class UserController {
     public String registerUser(User user,Model model) {
         boolean validPassword = validPassword(user.getPassword());
         if(!validPassword) {
-            String error = "Password must contain at least 1 alphabet, 1 number & 1 special character";
+            String error = "Password must contain atleast 1 alphabet, 1 number & 1 special character";
             model.addAttribute("passwordTypeError",error);
             model.addAttribute("User", user);
             return "users/registration";
         }
 
         userService.registerUser(user);
-        return "redirect:/users/login";
+        return "users/login";
     }
     public boolean validPassword(String password) {
 
